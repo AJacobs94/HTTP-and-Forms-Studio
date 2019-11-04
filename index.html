@@ -5,6 +5,20 @@
 	<script>
 		// TODO: create a handler
     window.addEventListener("load", function(){
+    button = document.getElementById("goButton");
+	button.addEventListener("click", function(){
+     console.log('You did it!');
+	
+	let engine= document.querySelector("input[name=engine]:checked").value
+	let actions={
+		"Google":"https://www.google.com/search",
+		"DuckDuckGo":"https://duckduckgo.com/",
+		"Bing": "https://www.bing.com/search",
+		"Ask":"https://www.ask.com/web"
+	};
+	console.log(actions[engine]);
+	document.getElementById("searchForm").setAttribute('action',actions[engine]);
+	});
         // TODO: register the handler
     });
 	</script>
@@ -13,7 +27,15 @@
 <body>
 
 	<form id="searchForm">
-    <!-- TODO: add form elements -->
+	<!-- TODO: add form elements -->
+	<input type="text" name="q"/>
+	Search Engine Options:
+	<label>Google<input type="radio" name="engine" value="Google"/></label>
+	<label>DuckDuckGo<input type="radio" name="engine" value="DuckDuckGo"/></label>
+	<label>Bing<input type="radio" name="engine" value="Bing"/></label>
+	<label>Ask<input type="radio" name="engine" value="Ask"/></label>
+	<button id ="goButton">Go!</button>
+
 	</form>
 
 </body>
